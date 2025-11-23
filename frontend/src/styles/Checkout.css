@@ -1,0 +1,99 @@
+.checkout-page {
+  direction: rtl;
+  padding: 40px 20px;
+  font-family: 'Readex Pro', sans-serif;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+.checkout-page h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #1B2465;
+}
+
+.checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.checkout-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: right;
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #1B2465;
+  font-size: 14px;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Readex Pro', sans-serif;
+  background-color: #fff;
+}
+
+/* ✅ حقل إنستغرام باتجاه LTR */
+.checkout-form input[name="instagram"] {
+  direction: ltr;
+}
+
+/* ✅ تحسين مظهر القائمة المنسدلة */
+.checkout-form select {
+  background-color: #fff;
+  color: #333;
+}
+
+/* ✅ زر تأكيد الطلب */
+.checkout-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to left, #1B2465, #3647C9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkout-summary {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: right;
+}
+
+.checkout-summary h3 {
+  font-size: 20px;
+  color: #1B2465;
+  margin-bottom: 15px;
+}
+
+.checkout-summary p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+}

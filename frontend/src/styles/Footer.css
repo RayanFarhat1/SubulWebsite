@@ -1,0 +1,81 @@
+.footer {
+  width: 100%;
+  background-color: #1B2465;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+  direction: rtl; /* ✅ الموقع عربي */
+}
+
+.contact-items {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 15px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* الأيقونات */
+.contact-icon {
+  font-size: 28px;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-bottom: 6px;
+}
+
+.instagram-icon:hover {
+  color: #ff4081;
+  transform: scale(1.2);
+}
+
+.email-icon:hover {
+  color: #00c3ff;
+  transform: scale(1.2);
+}
+
+.whatsapp-icon:hover {
+  color: #25D366;
+  transform: scale(1.2);
+}
+
+/* النصوص */
+.contact-text {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* ✅ النصوص الإنجليزية تظهر من اليسار لليمين */
+.contact-text.ltr {
+  direction: ltr;
+  unicode-bidi: plaintext;
+}
+
+/* تأثير hover على النصوص */
+.contact-text:hover {
+  color: #ccc;
+}
+
+/* الروابط */
+.contact-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copy {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #ddd;
+}

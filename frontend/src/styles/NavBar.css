@@ -1,0 +1,162 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B2465;
+  padding: 10px 20px;
+  direction: rtl;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.nav-logo img {
+  width: 60px;
+}
+
+/* ✅ زر القائمة للجوال */
+.mobile-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ روابط التنقل */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+}
+
+.nav-links hr {
+  margin-top: 5px;
+  border: none;
+  height: 2px;
+  background-color: #61dafb;
+  width: 100%;
+}
+
+/* ✅ أيقونات سطح المكتب */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-icons svg {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-cart {
+  position: relative;
+}
+
+.nav-cart img {
+  width: 30px;
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  pointer-events: none;
+}
+
+/* ✅ أيقونات داخل القائمة للجوال */
+.nav-icons-mobile {
+  display: none;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.nav-icons-mobile a {
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.nav-icons-mobile .nav-cart {
+  position: relative;
+}
+
+.nav-icons-mobile .nav-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  pointer-events: none;
+}
+
+.nav-icons-mobile img {
+  width: 30px;
+}
+
+/* ✅ استجابة للجوال */
+@media screen and (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #1B2465;
+    padding: 10px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #3647C9;
+    width: 100%;
+  }
+
+  .nav-icons {
+    display: none;
+  }
+
+  .nav-icons-mobile {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,139 @@
+.cart-page {
+  direction: rtl;
+  padding: 40px 20px;
+  font-family: 'Readex Pro', sans-serif;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+.cart-page h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #1B2465;
+}
+
+.cart-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.cart-card {
+  width: 100%;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-card img {
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.cart-details h3 {
+  font-size: 16px;
+  color: #1B2465;
+  margin-bottom: 8px;
+}
+
+.cart-details p {
+  font-size: 14px;
+  color: #333;
+  margin: 4px 0;
+}
+
+.cart-details button {
+  margin-top: 10px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ✅ تنسيق حقل الكمية */
+.cart-details input[type="number"] {
+  width: 55px; /* ✅ أصغر من السابق */
+  padding: 6px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.cart-summary {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: right;
+}
+
+.cart-summary h3 {
+  font-size: 20px;
+  color: #1B2465;
+  margin-bottom: 15px;
+}
+
+.cart-summary p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+}
+
+.checkout-button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to left, #1B2465, #3647C9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-summary select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Readex Pro', sans-serif;
+  background-color: #fff;
+}
+.cart-title {
+  font-size: 16px;
+  color: #1B2465;
+  margin-bottom: 8px;
+  min-height: 48px; /* ✅ يضمن مساحة ثابتة تحت العنوان */
+  display: flex;
+  align-items: flex-start;
+}
+.empty-page {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px; /* مساحة للفوتر */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

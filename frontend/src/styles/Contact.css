@@ -1,0 +1,133 @@
+.contact-page {
+  direction: rtl;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-image: url('../assets/about_background2.jpg'); /* خلفية زخرفية */
+  background-size: cover;
+  background-position: center;
+  font-family: 'Readex Pro', sans-serif !important;
+  color: #20272c;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ تنسيق العنوان والنص */
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.contact-header h2 {
+  
+  font-size: 36px;
+  font-weight: bold;
+  color: #1B2465; /* ✅ ذهبي */
+  background-color: rgba(255, 255, 255, 0.7); /* خلفية شفافة خفيفة */
+  padding: 12px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: 'Scheherazade New', 'Amiri', serif; /* ✅ خط مزخرف عربي */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #000; /* ✅ ظل خفيف للوضوح */
+  display: inline-block;
+  margin-bottom: 20px;
+
+}
+
+
+.contact-header p {
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #1B2465;
+}
+
+/* النموذج */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: right;
+}
+
+.contact-form label {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: -10px;
+  margin-right: 5px;
+  color: #1B2465;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  
+}
+
+.contact-form button {
+  padding: 12px;
+  background: linear-gradient(to left, #61dafb, #047E9F);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Readex Pro', sans-serif;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(to left, #047E9F, #61dafb);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 40px 15px;
+  }
+
+  .contact-header h2 {
+    font-size: 26px;
+  }
+
+  .contact-header p {
+    font-size: 15px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h2 {
+    font-size: 22px;
+  }
+
+  .contact-header p {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

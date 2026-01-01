@@ -2,6 +2,12 @@ import React from 'react';
 import '../styles/Contact.css';
 
 function ContactUs() {
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    alert("✅ تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.");
+    e.target.reset(); 
+  };
+
   return (
     <div className="contact-page">
       <div className="contact-header">
@@ -9,7 +15,7 @@ function ContactUs() {
         <p>يسعدنا تواصلك معنا لأي استفسار أو اقتراح. نحن هنا لخدمتك بكل حب واحترام.</p>
       </div>
 
-      <form className="contact-form">
+      <form className="contact-form" onSubmit={handleSubmit}>
         <label htmlFor="name">الاسم الكامل:</label>
         <input type="text" id="name" name="name" required />
 

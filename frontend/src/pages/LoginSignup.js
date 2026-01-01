@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/LoginSignUp.css';
 
 function LoginSignUp() {
   const [isLogin, setIsLogin] = useState(true);
   const [alertMessage, setAlertMessage] = useState('');
-  const [alertType, setAlertType] = useState(''); // success أو error
+  const [alertType, setAlertType] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (isSubmitting) return;
+    setIsSubmitting(true);
 
     const formElements = e.target.elements;
     const name = !isLogin ? formElements[0].value.trim() : null;
@@ -19,19 +24,59 @@ function LoginSignUp() {
     if (!email || !password || (!isLogin && !name)) {
       setAlertMessage('يرجى تعبئة جميع الحقول المطلوبة');
       setAlertType('error');
+      setIsSubmitting(false);
       return;
     }
 
-    // هنا منطق التحقق أو الاتصال بالسيرفر
-    const success = true;
+    try {
+      let userId;
 
-    if (success) {
-      setAlertMessage(isLogin ? 'تم تسجيل الدخول بنجاح!' : 'تم إنشاء الحساب بنجاح!');
-      setAlertType('success');
+      if (isLogin) {
+        const res = await axios.post("http://localhost:5000/api/login", { email, password });
+        userId = res.data.user.id;
+        localStorage.setItem("userId", userId);
+        setAlertMessage('تم تسجيل الدخول بنجاح!');
+        setAlertType('success');
+      } else {
+        const res = await axios.post("http://localhost:5000/api/signup", { name, email, password });
+        if (res.data.userId) {
+          userId = res.data.userId;
+          localStorage.setItem("userId", userId);
+          setAlertMessage('تم إنشاء الحساب بنجاح!');
+          setAlertType('success');
+        } else {
+          throw new Error("رد غير متوقع من السيرفر");
+        }
+      }
+
+      const cartRes = await axios.get(`http://localhost:5000/api/cart/${userId}`);
+      const count = cartRes.data.reduce((sum, i) => sum + i.quantity, 0);
+      console.log("✅ cartCount after login/signup:", count);
+      localStorage.setItem("cartCount", count);
+
+      window.dispatchEvent(new Event("userUpdated"));
+      window.dispatchEvent(new Event("cartUpdated"));
 
       setTimeout(() => {
         navigate('/');
-      }, 1500); // ينتظر ثانية ونصف قبل الانتقال
+        setIsSubmitting(false);
+      }, 1500);
+
+    } catch (err) {
+      console.error("Auth error:", err);
+      if (err.response && err.response.data.message) {
+        setAlertMessage(err.response.data.message);
+      } else if (
+        err.response &&
+        err.response.data.code === "ER_DUP_ENTRY" &&
+        err.response.data.sqlMessage.includes("for key 'email'")
+      ) {
+        setAlertMessage("البريد الإلكتروني مستخدم بالفعل");
+      } else {
+        setAlertMessage("حدث خطأ أثناء العملية");
+      }
+      setAlertType('error');
+      setIsSubmitting(false);
     }
   };
 
@@ -50,7 +95,9 @@ function LoginSignUp() {
           {!isLogin && <input type="text" placeholder="الاسم الكامل" />}
           <input type="email" placeholder="البريد الإلكتروني" />
           <input type="password" placeholder="كلمة المرور" />
-          <button type="submit">{isLogin ? 'دخول' : 'إنشاء حساب'}</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isLogin ? 'دخول' : 'إنشاء حساب'}
+          </button>
         </form>
 
         <p className="toggle-auth">

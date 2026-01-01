@@ -8,7 +8,7 @@ import Login from './pages/LoginSignup';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import Footer from './Components/Footer';
-import Favorites from './pages/Favorites'; // ✅ صفحة المفضلة الجديدة
+import Favorites from './pages/Favorites'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
@@ -21,7 +21,7 @@ function App() {
     document.documentElement.dir = "rtl";
   }, []);
 
-  // ✅ إضافة إلى المفضلة
+  
   const addToFavorites = (item) => {
     setFavorites((prev) => {
       if (!prev.find(fav => fav.id === item.id)) {
@@ -31,12 +31,12 @@ function App() {
     });
   };
 
-  // ✅ إزالة من المفضلة
+  
   const removeFromFavorites = (id) => {
     setFavorites((prev) => prev.filter(fav => fav.id !== id));
   };
 
-  // ✅ إضافة إلى السلة مع دعم الكمية
+  
   const addToCart = (item) => {
     setCartItems((prev) => {
       const existing = prev.find((i) => i.id === item.id);
@@ -49,7 +49,7 @@ function App() {
     });
   };
 
-  // ✅ تعديل الكمية
+  
   const updateQuantity = (id, quantity) => {
     setCartItems((prev) =>
       prev.map((item) =>
@@ -58,7 +58,7 @@ function App() {
     );
   };
 
-  // ✅ إزالة من السلة
+  
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter(cartItem => cartItem.id !== id));
   };
@@ -69,19 +69,45 @@ function App() {
         <NavBar cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} />
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart} />} />
-          <Route path="/menu" element={<Menu addToCart={addToCart} addToFavorites={addToFavorites} />} />
+          <Route
+            path="/menu"
+            element={
+              <Menu
+                addToCart={addToCart}
+                addToFavorites={addToFavorites}
+                removeFromFavorites={removeFromFavorites}
+                favorites={favorites}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />} />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cartItems={cartItems}
+                removeFromCart={removeFromCart}
+                updateQuantity={updateQuantity}
+              />
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
-          <Route path="/favorites" element={<Favorites favorites={favorites} removeFromFavorites={removeFromFavorites} />} />
+          <Route
+            path="/favorites"
+            element={
+              <Favorites
+                favorites={favorites}
+                removeFromFavorites={removeFromFavorites}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </Router>
     </div>
   );
 }
-
 
 export default App;

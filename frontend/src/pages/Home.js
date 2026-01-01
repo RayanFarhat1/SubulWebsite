@@ -1,45 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../styles/Home.css';
-import hajar from '../assets/hajar.png'; // صورة الغلاف
-import book1 from '../assets/مع ابي.png';
-import book2 from '../assets/حافظ رسالة.png';
-import book3 from '../assets/حامل راية.png';
+import hajar from '../assets/hajar.png'; 
 import wrap1 from '../assets/package1.jpeg';
 import wrap2 from '../assets/package2.jpeg';
 import feedProfile from '../assets/feed-profile.jpg';
 
-function Home({ addToCart }) {
-  const books = [
-    { id: 1, image: book1, title: "ذكرياتي مع أبي", price: "$15" },
-    { id: 2, image: book2, title: "حافظ رسالة الإسلام", price: "$15" },
-    { id: 3, image: book3, title: "حامل راية كربلاء", price: "$15" },
-  ];
-
+function Home() {
+  const [books, setBooks] = useState([]);
   const wraps = [wrap1, wrap2];
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/products");
+        const newBooks = res.data.filter(p => p.type === "book").slice(0, 3);
+        setBooks(newBooks);
+      } catch (err) {
+        console.error("Error fetching books:", err);
+      }
+    };
+    fetchBooks();
+  }, []);
 
   return (
     <div className="home-page">
-      {/* صورة الغلاف */}
       <div className="hero-image">
         <img src={hajar} alt="غلاف سبل" />
       </div>
-
-      {/* قسم الإصدارات الجديدة */}
       <section className="section">
         <h2>الإصدارات الجديدة</h2>
         <div className="book-grid">
-          {books.map((book) => (
-            <div className="book-card" key={book.id}>
-              <img src={book.image} alt={book.title} />
-              <h3>{book.title}</h3>
-              <p>{book.price}</p>
-              
-            </div>
-          ))}
+          {books.map((book) => {
+            let bookImage;
+            try {
+              bookImage = require(`../assets/${book.image_url}`);
+            } catch {
+              bookImage = null;
+            }
+
+            return (
+              <div className="book-card" key={book.id}>
+                {bookImage ? (
+                  <img src={bookImage} alt={book.name} />
+                ) : (
+                  <div className="no-image">لا توجد صورة</div>
+                )}
+                <h3>{book.name}</h3>
+                <p>{book.price ? `${book.price} $` : "السعر حسب الطلب"}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* قسم التغليف */}
       <section className="section">
         <h2>التغليف</h2>
         <div className="wrap-grid">
@@ -51,9 +65,8 @@ function Home({ addToCart }) {
         </div>
       </section>
 
-      {/* قسم آراء الزوار */}
       <section className="section feedback-slider">
-        <h2>إقرأ الآراء </h2>
+        <h2>إقرأ الآراء</h2>
         <div className="feedback-container">
           {[1, 2, 3].map((_, index) => (
             <div className="feedback-card" key={index}>
@@ -63,8 +76,7 @@ function Home({ addToCart }) {
                 className="feedback-avatar"
               />
               <p className="feedback-text">
-                من المريح جداً شعورك أنك تنتمي لمكانها، وكل شيء منظم بطريقة رائعة. 
-               
+                من المريح جداً شعورك أنك تنتمي لمكانها، وكل شيء منظم بطريقة رائعة.
               </p>
             </div>
           ))}

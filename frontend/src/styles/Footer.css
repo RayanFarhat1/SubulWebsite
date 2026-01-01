@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px 10px;
-  direction: rtl; /* ✅ الموقع عربي */
+  direction: rtl; 
 }
 
 .contact-items {
@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-/* الأيقونات */
+
 .contact-icon {
   font-size: 28px;
   color: white;
@@ -47,7 +47,7 @@
   transform: scale(1.2);
 }
 
-/* النصوص */
+
 .contact-text {
   font-size: 14px;
   color: white;
@@ -55,18 +55,17 @@
   transition: color 0.3s ease;
 }
 
-/* ✅ النصوص الإنجليزية تظهر من اليسار لليمين */
 .contact-text.ltr {
   direction: ltr;
   unicode-bidi: plaintext;
 }
 
-/* تأثير hover على النصوص */
+
 .contact-text:hover {
   color: #ccc;
 }
 
-/* الروابط */
+
 .contact-link {
   text-decoration: none;
   display: flex;

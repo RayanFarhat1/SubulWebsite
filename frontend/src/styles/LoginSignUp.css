@@ -1,11 +1,11 @@
-/* الحاوية العامة للصفحة */
+
 .login-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 100px); /* يعوض عن ارتفاع الـ Navbar */
+  min-height: calc(100vh - 100px); 
 }
 
-/* الصندوق الأساسي للنموذج */
+
 .auth-page {
   direction: rtl;
   padding: 50px 30px;
@@ -99,7 +99,7 @@
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
-/* ✅ Responsive adjustments */
+
 @media screen and (max-width: 768px) {
   .auth-page {
     max-width: 90%;

@@ -1,4 +1,4 @@
-/* الخلفية تغطي كامل الصفحة */
+
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@ body {
 
 }
 
-/* الحاوية الرئيسية */
+
 .about-wrapper {
   position: relative;
   width: 100%;
@@ -15,7 +15,7 @@ body {
   overflow: hidden;
 }
 
-/* صورة الخلفية */
+
 .about-background {
   position: absolute;
   top: 0;
@@ -26,21 +26,21 @@ body {
   z-index: -1;
 }
 
-/* الطبقة التي تحتوي على النص */
+
 .about-overlay {
   position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;     /* ✅ توسيط أفقي */
-  align-items: center;         /* ✅ توسيط عمودي */
+  justify-content: center;    
+  align-items: center;        
   flex-direction: column;
   color: #20272c;
   box-sizing: border-box;
-  padding: 0;                  /* ✅ إزالة الحشو الزائد */
+  padding: 0;                  
 }
 
-/* النص داخل الزاوية الصفراء */
+
 .corner-text {
   position: absolute;
   top: 20px;
@@ -56,7 +56,7 @@ body {
   text-align: right;
 }
 
-/* محتوى الصفحة */
+
 .about-content {
   background-color: rgba(255, 255, 255, 0.95);
   padding: 40px;
@@ -68,7 +68,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* العنوان مع خط أزرق تحته */
+
 .about-content h2 {
   font-size: 28px;
   margin-bottom: 20px;
@@ -90,7 +90,7 @@ body {
   border-radius: 2px;
 }
 
-/* الفقرات */
+
 .about-content p {
   font-size: 19px;
   line-height: 1.8;
@@ -98,7 +98,7 @@ body {
   color: #1B2465;
 }
 
-/* استجابة للشاشات الصغيرة */
+
 @media (max-width: 768px) {
   .about-overlay {
     padding: 40px 15px;

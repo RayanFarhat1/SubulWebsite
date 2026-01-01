@@ -2,7 +2,7 @@
   direction: rtl;
   min-height: 100vh;
   padding: 60px 20px;
-  background-image: url('../assets/about_background2.jpg'); /* خلفية زخرفية */
+  background-image: url('../assets/about_background2.jpg'); 
   background-size: cover;
   background-position: center;
   font-family: 'Readex Pro', sans-serif !important;
@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-/* ✅ تنسيق العنوان والنص */
+
 .contact-header {
   display: flex;
   flex-direction: column;
@@ -25,14 +25,14 @@
   
   font-size: 36px;
   font-weight: bold;
-  color: #1B2465; /* ✅ ذهبي */
-  background-color: rgba(255, 255, 255, 0.7); /* خلفية شفافة خفيفة */
+  color: #1B2465; 
+  background-color: rgba(255, 255, 255, 0.7); 
   padding: 12px 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-family: 'Scheherazade New', 'Amiri', serif; /* ✅ خط مزخرف عربي */
+  font-family: 'Scheherazade New', 'Amiri', serif; 
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px #000; /* ✅ ظل خفيف للوضوح */
+  text-shadow: 1px 1px 2px #000; 
   display: inline-block;
   margin-bottom: 20px;
 
@@ -47,7 +47,7 @@
   color: #1B2465;
 }
 
-/* النموذج */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@
   background: linear-gradient(to left, #047E9F, #61dafb);
 }
 
-/* ✅ Responsive Design */
+
 @media (max-width: 768px) {
   .contact-page {
     padding: 40px 15px;

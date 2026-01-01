@@ -4,7 +4,7 @@
 
 }
 
-/* صورة الغلاف */
+
 .hero-image img {
   width: 100%;
   height: 400px;
@@ -13,7 +13,7 @@
   margin: 0;
 }
 
-/* الأقسام */
+
 .section {
   padding: 40px 20px;
   text-align: center;
@@ -25,7 +25,7 @@
   margin-bottom: 30px;
 }
 
-/* شبكة الكتب */
+
 .book-grid {
   display: flex;
   flex-wrap: wrap;
@@ -82,7 +82,7 @@
   font-family: 'Readex Pro', sans-serif;
 }
 
-/* التغليف */
+
 .wrap-grid {
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +117,7 @@
   border-radius: 8px;
 }
 
-/* قسم آراء العملاء */
+
 .feedback-slider {
   background-image: url('../assets/feed-background2.jpg'); /* ضع الصورة داخل مجلد assets */
   background-size: cover;
@@ -142,10 +142,10 @@
   color: white;
 }
 
-/* الحاوية القابلة للسحب */
+
 .feedback-container {
   display: flex;
-  justify-content: center; /* ← هذا يضع البطاقات في الوسط */
+  justify-content: center; 
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 20px;
@@ -162,7 +162,7 @@
   border-radius: 4px;
 }
 
-/* بطاقة رأي */
+
 .feedback-card {
   flex: 0 0 300px;
   scroll-snap-align: center;
@@ -202,7 +202,7 @@
   color: #666;
 }
 
-/* تحسينات الاستجابة */
+
 @media screen and (max-width: 768px) {
   .book-grid,
   .wrap-grid {

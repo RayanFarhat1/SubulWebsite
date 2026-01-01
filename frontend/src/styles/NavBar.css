@@ -13,15 +13,17 @@
   width: 60px;
 }
 
-/* ✅ زر القائمة للجوال */
+
 .mobile-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
 }
 
-/* ✅ روابط التنقل */
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +47,7 @@
   width: 100%;
 }
 
-/* ✅ أيقونات سطح المكتب */
+
 .nav-icons {
   display: flex;
   align-items: center;
@@ -70,9 +72,9 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: red;
+  background-color: #61dafb;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
   width: 20px;
   height: 20px;
@@ -82,7 +84,6 @@
   pointer-events: none;
 }
 
-/* ✅ أيقونات داخل القائمة للجوال */
 .nav-icons-mobile {
   display: none;
   gap: 15px;
@@ -104,7 +105,7 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: red;
+  background-color: #61dafb;
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -120,30 +121,92 @@
   width: 30px;
 }
 
-/* ✅ استجابة للجوال */
+.logout-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 10px;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.logout-link:hover {
+  background-color: #2a3580; 
+}
+
+
 @media screen and (max-width: 768px) {
-  .mobile-toggle {
-    display: block;
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 12px;
+    width: 100%;
   }
 
-  .nav-links {
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-logo {
+    margin-left: 0;
+    margin-right: auto;
+    order: -1;
+    align-self: flex-start;
+  }
+
+  .nav-logo img {
+    width: 45px;
+  }
+
+  .mobile-toggle {
+    display: block;
+    order: -2;
+    margin-top: 0px;
+  }
+
+   .nav-links {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
     background-color: #1B2465;
     padding: 10px 0;
+
+ 
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+
+    
+    width: 80%;        
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 8px;
   }
 
   .nav-links.open {
     display: flex;
+    max-height: 500px;
+    opacity: 1;
   }
 
   .nav-links a {
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 15px;
+    padding: 10px 16px;
     border-bottom: 1px solid #3647C9;
-    width: 100%;
+    width: 50%;
+  }
+
+
+  .nav-links a:hover {
+    background-color: #2a3580;
   }
 
   .nav-icons {
@@ -153,10 +216,25 @@
   .nav-icons-mobile {
     display: flex;
     justify-content: flex-start;
+    
   }
 
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  .nav-icons-mobile img {
+    width: 24px;
+    
+  }
+
+  .nav-icons-mobile svg {
+    font-size: 18px;
+  }
+
+  .nav-cart-count,
+  .nav-icons-mobile .nav-cart-count {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    line-height: 16px;
+    top: -6px;
+    right: -6px;
   }
 }
